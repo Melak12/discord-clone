@@ -53,6 +53,9 @@ export const CreateServerModal = () => {
             // Refresh the current page
             router.refresh();
 
+            // Close Modal
+            onClose();
+
 
         } catch (error) {
             console.log(">> Post Error >> ", error);
