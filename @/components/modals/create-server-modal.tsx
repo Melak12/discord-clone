@@ -6,9 +6,9 @@ import { useForm } from "react-hook-form";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../ui/dialog";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
-import FileUpload from '../file-upload';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import FileUpload from '@/components/file-upload';
 
 import axios from 'axios'
 import { useRouter } from 'next/navigation';
