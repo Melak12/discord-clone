@@ -1,6 +1,6 @@
 'use client'
 import { Search } from 'lucide-react';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../ui/command';
 
 interface ServerSearchProps {
@@ -16,7 +16,20 @@ interface ServerSearchProps {
 }
 
 const ServerSearch = ({ data }: ServerSearchProps) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+      const down = (e:KeyboardEvent) => {
+        if(e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+            e.preventDefault();
+            setOpen((open) => !open);
+        }
+      };
+
+      document.addEventListener('keydown', down);
+      return () => document.removeEventListener('keydown', down);
+    }, [])
+    
     return (
         <>
             <button onClick={() => setOpen(true)} className='group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition'>
